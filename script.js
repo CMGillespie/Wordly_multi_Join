@@ -1137,7 +1137,7 @@ document.addEventListener('DOMContentLoaded', () => {
           presentationCode: state.sessionId,
           accessKey: state.passcode,
           languageCode: recorder.language,
-          speakerId: recorder.id,
+          speakerId: `${recorder.id}-${Date.now()}`,
           name: recorder.name,
           context: recorder.context || null,
           connectionCode: 'wordly-join-app'
