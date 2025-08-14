@@ -1599,11 +1599,18 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    const nameInput = recorderEl.querySelector('.name-input');
+const nameInput = recorderEl.querySelector('.name-input');
     nameInput.addEventListener('change', (e) => {
       recorder.name = e.target.value.trim() || `Speaker ${state.recorders.indexOf(recorder) + 1}`;
       recorderEl.querySelector('.recorder-name').textContent = recorder.name;
     });
+    
+    // Also update name when input loses focus (blur event)
+    nameInput.addEventListener('blur', (e) => {
+      recorder.name = e.target.value.trim() || `Speaker ${state.recorders.indexOf(recorder) + 1}`;
+      recorderEl.querySelector('.recorder-name').textContent = recorder.name;
+    });
+
     
     const languageSelect = recorderEl.querySelector('.language-select');
     languageSelect.addEventListener('change', (e) => {
