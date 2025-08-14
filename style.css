@@ -1,0 +1,730 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Login Page */
+#login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* Tabs */
+.login-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  color: #7f8c8d;
+}
+
+.tab-button.active {
+  color: #2980b9;
+  border-bottom: 2px solid #2980b9;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  background-color: #3498db;
+}
+
+.status-message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  display: none;
+}
+
+.status-message.error {
+  display: block;
+  background-color: #ffeded;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.status-message.success {
+  display: block;
+  background-color: #edfff5;
+  color: #27ae60;
+  border: 1px solid #27ae60;
+}
+
+/* App Layout */
+#app-page {
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#session-id-display {
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+#disconnect-btn {
+  background-color: #95a5a6;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#disconnect-btn:hover {
+  background-color: #7f8c8d;
+}
+
+.master-button {
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.master-button:hover {
+  background-color: #e67e22;
+}
+
+.master-button.muted {
+  background-color: #e74c3c;
+}
+
+.master-button.muted:hover {
+  background-color: #c0392b;
+}
+
+.danger-button {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.danger-button:hover {
+  background-color: #c0392b;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Warnings */
+.browser-warning {
+  background-color: #fff8e1;
+  border-left: 4px solid #f39c12;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  display: none; /* Shown by JS */
+}
+
+.no-device-support {
+  background-color: #ffeded;
+  color: #e74c3c;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  text-align: center;
+  display: none; /* Shown by JS */
+}
+
+/* Controls */
+.controls-panel {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.global-controls, .preset-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preset-input, .preset-select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.preset-input {
+  min-width: 150px;
+}
+
+.preset-select {
+  min-width: 180px;
+}
+
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.preset-btn {
+  color: white;
+}
+
+.save-preset-btn { background-color: #f39c12; }
+.load-preset-btn { background-color: #3498db; }
+.delete-preset-btn { background-color: #e74c3c; }
+.export-preset-btn { background-color: #9b59b6; }
+.import-preset-btn { background-color: #16a085; }
+
+.save-preset-btn:hover { background-color: #e67e22; }
+.load-preset-btn:hover { background-color: #2980b9; }
+.delete-preset-btn:hover { background-color: #c0392b; }
+.export-preset-btn:hover { background-color: #8e44ad; }
+.import-preset-btn:hover { background-color: #138d75; }
+
+#add-recorder-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+#add-recorder-btn:hover {
+  background-color: #27ae60;
+}
+
+.control-btn {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.control-btn:hover {
+  background-color: #7f8c8d;
+}
+
+/* Recorder Grid */
+.recorder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  flex-grow: 1; /* Allow grid to take available space */
+}
+
+.recorder {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Important for collapse animation */
+  display: flex;
+  flex-direction: column; /* Ensure header, settings, content stack vertically */
+}
+
+.recorder-header {
+  background-color: #34495e;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recorder-title {
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between light and text */
+}
+
+/* Status light indicator */
+.recorder-status-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.recorder-status-light.connected { background-color: #2ecc71; box-shadow: 0 0 5px #2ecc71; }
+.recorder-status-light.connecting { background-color: #f39c12; box-shadow: 0 0 5px #f39c12; animation: pulse 1.5s infinite ease-in-out; }
+.recorder-status-light.disconnected { background-color: #e74c3c; box-shadow: 0 0 5px #e74c3c; }
+.recorder-status-light.error { background-color: #e74c3c; box-shadow: 0 0 5px #e74c3c; }
+.recorder-status-light.ended { background-color: #95a5a6; box-shadow: 0 0 5px #95a5a6; }
+.recorder-status-light.muted { background-color: #f39c12; box-shadow: 0 0 5px #f39c12; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.recorder-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Adjust as needed */
+}
+
+.recorder-language-indicator {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.recorder-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.recorder-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.recorder-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.remove-btn { background-color: #c0392b; } /* Darker red */
+.remove-btn:hover { background-color: #e74c3c; }
+.collapse-btn { background-color: #7f8c8d; } /* Grey */
+.collapse-btn:hover { background-color: #95a5a6; }
+
+/* FIX #1: Leave/Join button styles with disabled state */
+.leave-btn { 
+  background-color: #f39c12; /* Orange */
+}
+.leave-btn:hover { 
+  background-color: #e67e22; 
+}
+.leave-btn:disabled,
+.leave-btn.disabled {
+  background-color: #95a5a6 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
+.leave-btn:disabled:hover,
+.leave-btn.disabled:hover {
+  background-color: #95a5a6 !important; /* No hover effect when disabled */
+}
+
+.mute-btn { background-color: #3498db; } /* Blue */
+.mute-btn:hover { background-color: #2980b9; }
+.mute-btn.muted { background-color: #e74c3c; } /* Red when muted */
+.mute-btn.muted:hover { background-color: #c0392b; }
+
+/* Recorder Settings */
+.recorder-settings {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 1px solid #eee;
+  align-items: center; /* Align items vertically */
+}
+
+.setting-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.setting-label {
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.setting-select, .setting-input {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 150px;
+  flex-grow: 1; /* Allow select to grow */
+}
+
+/* Recorder Content */
+.recorder-content {
+  padding: 15px;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out;
+  max-height: 500px; /* Set a large max-height for expanded state */
+  overflow: hidden;
+  opacity: 1;
+  flex-grow: 1; /* Allow content to fill space */
+  display: flex;
+  flex-direction: column;
+}
+
+.recorder-content.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+}
+
+.recorder-transcript {
+  max-height: 250px; /* Adjust max height as needed */
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Allow transcript to grow */
+  display: flex; /* Use flexbox for column-reverse effect if needed */
+  flex-direction: column; /* Stack phrases vertically */
+}
+
+.audio-visualizer {
+  width: 100%;
+  height: 60px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.visualizer-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.audio-level {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(to top, #2ecc71, #27ae60);
+  transition: width 0.1s ease;
+}
+
+.audio-level.speaking {
+  background: linear-gradient(to top, #3498db, #2980b9);
+}
+
+.audio-level.muted {
+  background: linear-gradient(to top, #e74c3c, #c0392b);
+}
+
+.phrase {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Remove margin from last phrase */
+.phrase:last-child {
+  margin-bottom: 0;
+}
+
+.phrase-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px; /* Smaller font */
+  color: #7f8c8d;
+  margin-bottom: 4px; /* Less space */
+}
+
+.phrase-text {
+  font-size: 14px;
+  word-wrap: break-word; /* Wrap long words */
+}
+
+.phrase.system-message {
+  background-color: #e8f7ff;
+  color: #3498db;
+  font-style: italic;
+  text-align: center;
+  font-size: 13px;
+}
+
+.phrase.system-message.error {
+  background-color: #ffeded;
+  color: #e74c3c;
+  font-style: normal;
+}
+
+.recorder-status, .audio-status {
+  margin-top: auto; /* Push status messages to bottom */
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #7f8c8d;
+  border-radius: 4px;
+  padding: 5px 0; /* Adjust padding */
+}
+
+.recorder-status {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.recorder-status.connected { color: #27ae60; }
+.recorder-status.connecting { color: #f39c12; }
+.recorder-status.disconnected { color: #e74c3c; }
+.recorder-status.error { color: #e74c3c; }
+.recorder-status.ended { color: #7f8c8d; }
+.recorder-status.muted { color: #f39c12; }
+
+/* Notifications */
+.notification {
+  position: fixed;
+  bottom: 20px; /* Position at bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  padding: 12px 20px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+  max-width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  opacity: 0.95;
+  transition: opacity 0.5s ease-out; /* CSS transition for fade out */
+}
+
+.notification.success { background-color: #2ecc71; }
+.notification.error { background-color: #e74c3c; }
+.notification.info { background-color: #3498db; }
+
+/* Dialog */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-dialog {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  padding: 25px;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancel {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #7f8c8d;
+}
+
+.btn-confirm {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .controls-panel {
+    flex-direction: column;
+    align-items: stretch; /* Stretch items to full width */
+  }
+  
+  .global-controls, .preset-controls {
+    width: 100%;
+    justify-content: center; /* Center buttons on small screens */
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .preset-btn {
+    min-width: 70px;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .recorder-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 15px;
+  }
+
+  .recorder-settings {
+    flex-direction: column;
+    align-items: stretch; /* Stretch settings groups */
+    gap: 10px;
+  }
+
+  .setting-group {
+    width: 100%;
+    justify-content: space-between; /* Space out label and select */
+  }
+
+  .setting-select, .setting-input {
+    min-width: 100px; /* Adjust min-width */
+    flex-grow: 0; /* Don't allow select to grow excessively */
+    max-width: 60%; /* Limit select width */
+  }
+
+  .notification {
+    width: 90%;
+    max-width: none;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5em; }
+  .login-card { padding: 20px; }
+  button, input, select { font-size: 14px; padding: 10px; } /* Slightly smaller controls */
+  .recorder-header { padding: 8px 12px; }
+  .recorder-title { font-size: 14px; }
+  .recorder-btn { padding: 3px 6px; font-size: 11px; }
+  .recorder-settings { padding: 10px; }
+  .setting-label { font-size: 13px; }
+  .setting-select, .setting-input { font-size: 13px; padding: 5px 8px; }
+  .recorder-content { padding: 10px; }
+  .phrase-text { font-size: 13px; }
+  .phrase-header { font-size: 10px; }
+  .notification { padding: 10px 15px; }
+}
