@@ -1129,6 +1129,9 @@ document.addEventListener('DOMContentLoaded', () => {
       recorder.websocket.onopen = () => {
         console.log(`WebSocket connection established for recorder ${recorder.id}`);
         
+   // Debug: Log the current name before sending
+        console.log(`About to send connect with name: "${recorder.name}" for recorder ${recorder.id}`);
+        
         const connectRequest = {
           type: 'connect',
           presentationCode: state.sessionId,
@@ -1139,6 +1142,8 @@ document.addEventListener('DOMContentLoaded', () => {
           context: recorder.context || null,
           connectionCode: 'wordly-join-app'
         };
+        
+        console.log('Full connect request:', connectRequest);
         
         try {
           recorder.websocket.send(JSON.stringify(connectRequest));
